@@ -3,9 +3,23 @@ body {
     --grid-rows: 1;
 }
 
+.header {
+    padding: 1.15rem 0;
+}
+
+
 .container {
-    width: 500px;
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin-top: 10rem;
+}
+
+.grid-container {
+    width: 600px;
+    height: 600px;
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -14,8 +28,18 @@ body {
 .grid-item {
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 .grid-item:hover{
     background-color: blue;
 }
+
+.footer {
+    padding: 2rem 0;
+}
+
+
+
+
+

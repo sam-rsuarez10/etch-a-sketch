@@ -31,12 +31,12 @@ main {
     overflow: hidden;
 }
 
-.grid-item:hover{
-    background-color: blue;
-}
-
 .footer {
     padding: 2rem 0;
+}
+
+.colored {
+    background-color: blue;
 }
 
 

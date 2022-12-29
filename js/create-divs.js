@@ -6,7 +6,7 @@ function createDivs(container, rows, cols) {
     let cells = [];
     for(let ind = 0; ind < rows*cols; ind++) {
         let div = document.createElement("div");
-        div.style.cssText = `border: 0.1rem solid black`;
+        div.style.cssText = `border: 0.1rem solid black;`;
         div.classList.add("grid-item");
         cells.push(div);
         container.appendChild(div);

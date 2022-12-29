@@ -1,7 +1,4 @@
-body {
-    --grid-cols: 1;
-    --grid-rows: 1;
-}
+
 
 .header {
     padding: 1.15rem 0;
@@ -29,6 +26,12 @@ main {
     padding: 0;
     margin: 0;
     overflow: hidden;
+}
+
+.options-container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 .footer {

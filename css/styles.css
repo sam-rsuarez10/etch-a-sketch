@@ -43,6 +43,10 @@ main {
     background-color: blue;
 }
 
+#color-input {
+    border: none;
+}
+
 
 
 

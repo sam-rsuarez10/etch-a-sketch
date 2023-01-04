@@ -14,7 +14,7 @@ function listen_cells(color) {
 }
 
 let draw = false; // flag which indicates if the event listener is in color mode
-let draw_color = 'red';
+let draw_color = '#000000';
 
 // HTML elements selection
 const containerDiv = document.querySelector("#grid");
@@ -22,6 +22,9 @@ const drawBtn = document.querySelector("#draw-btn");
 const eraseBtn = document.querySelector("#erase-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const gridBtn = document.querySelector("#grid-btn");
+const colorInput = document.querySelector("#color-input");
+
+colorInput.value = draw_color;
 
 // Create grid
 const maxScale = 70;
@@ -57,6 +60,10 @@ clearBtn.addEventListener('click', () => {
     cells.forEach(cell => cell.style.backgroundColor = '');
 });
 
+colorInput.addEventListener('input', () => {
+    draw_color = colorInput.value;
+    listen_cells(draw_color);
+});
 
 
 // how to detect is click is pressed down in javascript?

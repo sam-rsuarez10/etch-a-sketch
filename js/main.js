@@ -1,10 +1,11 @@
 import { createDivs } from "./create-divs.js";
 
-function listen_cells() {
+function listen_cells(color) {
+    // Fills cells with given color if mouseover event is triggered and draw flad is set to true
     cells.forEach(cell => {
         cell.addEventListener("mouseover", () => {
             if(draw) {
-                cell.style.backgroundColor = 'blue';
+                cell.style.backgroundColor = color;
             } else {
                 cell.style.backgroundColor = '';
             }
@@ -13,6 +14,7 @@ function listen_cells() {
 }
 
 let draw = false; // flag which indicates if the event listener is in color mode
+let draw_color = 'red';
 
 // HTML elements selection
 const containerDiv = document.querySelector("#grid");
@@ -25,7 +27,7 @@ const gridBtn = document.querySelector("#grid-btn");
 const maxScale = 70;
 let gridScale = 16; // rows * cols scale for grid
 let cells = createDivs(containerDiv, gridScale);
-listen_cells();
+listen_cells(draw_color);
 
 // Event Listeners
 gridBtn.addEventListener('click', () => {
@@ -42,7 +44,7 @@ gridBtn.addEventListener('click', () => {
             });
             // create cells with new scale
             cells = createDivs(containerDiv, inputScale);
-            listen_cells();
+            listen_cells(draw_color);
         }
     }
 });

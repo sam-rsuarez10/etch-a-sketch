@@ -31,6 +31,7 @@ main {
 
 .options-container {
     padding: 2rem 0;
+    background-color: indigo;
     display: flex;
     justify-content: space-around;
 }

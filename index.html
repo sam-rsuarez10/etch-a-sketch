@@ -20,12 +20,20 @@
             <div class="row">
                 <div id="grid" class="col-8 grid-container offset-md-2"></div>
 
-                <div class="col-6 offset-md-3 options-container bg-secondary">
-                    <button id="draw-btn">draw</button>
-                    <button id="erase-btn">erase</button>
+                <div class="col-6 offset-md-3 options-container">
+                    <button id="draw-btn" type="button" class="btn btn-primary">
+                        <box-icon name='pencil' type='solid' ></box-icon>
+                    </button>
+                    <button id="erase-btn" type="button" class="btn btn-warning">
+                        <box-icon name='eraser' type='solid' ></box-icon>
+                    </button>
                     <input type="color" id="color-input">
-                    <button id="grid-btn">grid</button>
-                    <button id="clear-btn">clear</button>
+                    <button id="grid-btn" type="button" class="btn btn-success">
+                        <box-icon name='grid' type='solid' ></box-icon>
+                    </button>
+                    <button id="clear-btn" type="button" class="btn btn-danger">
+                        <box-icon name='trash' type='solid' ></box-icon>
+                    </button>
                 </div>
             </div>
         </main>
@@ -35,6 +43,7 @@
         </footer>
     </div>
     <script type="module" src="./js/main.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

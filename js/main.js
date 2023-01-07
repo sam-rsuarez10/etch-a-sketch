@@ -1,13 +1,30 @@
 import { createDivs } from "./create-divs.js";
 
+function activate_cell(cell, color){
+    // colors cell with given color o erases a colored cell
+    if(draw) {
+        cell.style.backgroundColor = color;
+    } else {
+        cell.style.backgroundColor = '';
+    }
+}
+
 function listen_cells(color) {
-    // Fills cells with given color if mouseover event is triggered and draw flad is set to true
+    // Fills cells with given color if mouseover or click event is triggered and draw flad is set to true
     cells.forEach(cell => {
-        cell.addEventListener("mouseover", () => {
-            if(draw) {
-                cell.style.backgroundColor = color;
-            } else {
-                cell.style.backgroundColor = '';
+        cell.addEventListener('mousedown', () => {
+            clickdown = true;
+        });
+        
+        cell.addEventListener('mouseup', () => {
+            clickdown = false;
+        });
+
+        cell.addEventListener('click', () => activate_cell(cell, color));
+
+        cell.addEventListener('mouseover', () => {
+            if (clickdown) {
+                activate_cell(cell, color);
             }
         });
     });
@@ -26,11 +43,16 @@ const colorInput = document.querySelector("#color-input");
 
 colorInput.value = draw_color;
 
+let clickdown = false;
+
+
 // Create grid
 const maxScale = 70;
 let gridScale = 16; // rows * cols scale for grid
 let cells = createDivs(containerDiv, gridScale);
+
 listen_cells(draw_color);
+
 
 // Event Listeners
 gridBtn.addEventListener('click', () => {
@@ -64,6 +86,3 @@ colorInput.addEventListener('input', () => {
     draw_color = colorInput.value;
     listen_cells(draw_color);
 });
-
-
-// how to detect is click is pressed down in javascript?

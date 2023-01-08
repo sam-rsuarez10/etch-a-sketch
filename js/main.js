@@ -1,4 +1,5 @@
 import { createDivs } from "./create-divs.js";
+import { createGridInput } from "./create-grid-scale.js";
 
 function activate_cell(cell, color){
     // colors cell with given color o erases a colored cell
@@ -40,6 +41,7 @@ const eraseBtn = document.querySelector("#erase-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const gridBtn = document.querySelector("#grid-btn");
 const colorInput = document.querySelector("#color-input");
+const gridInputDiv = document.querySelector(".change-grid-container");
 
 colorInput.value = draw_color;
 
@@ -53,12 +55,16 @@ let cells = createDivs(containerDiv, gridScale);
 
 listen_cells(draw_color);
 
-
+let displayedGridInput = false; // flag which indicates if the input foor the grid scale is already displayed
 // Event Listeners
 gridBtn.addEventListener('click', () => {
-    // ask user a number scale for grid
+    // ask user a number scale factor for grid
     let validScale = false;
-    while (!validScale) {
+    if (!displayedGridInput) {
+        createGridInput(gridInputDiv);
+        displayedGridInput = true;
+    }
+    /*while (!validScale) {
         let inputScale = parseInt(prompt("Type a rows X columns scale for sketchpad"));
         if(inputScale && inputScale <= maxScale) {
             validScale =  true;
@@ -71,7 +77,7 @@ gridBtn.addEventListener('click', () => {
             cells = createDivs(containerDiv, inputScale);
             listen_cells(draw_color);
         }
-    }
+    }*/
 });
 
 drawBtn.addEventListener('click', () => draw = true);

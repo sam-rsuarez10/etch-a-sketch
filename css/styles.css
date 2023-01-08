@@ -48,6 +48,14 @@ main {
     border: none;
 }
 
+.change-grid-container { 
+    padding: 1.5rem 0;
+}
+
+#confirm-button {
+    height: 3.6rem;
+}
+
 
 
 

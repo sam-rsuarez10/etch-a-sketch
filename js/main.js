@@ -59,26 +59,32 @@ let displayedGridInput = false; // flag which indicates if the input foor the gr
 // Event Listeners
 gridBtn.addEventListener('click', () => {
     // ask user a number scale factor for grid
-    let validScale = false;
+    gridInputDiv.style.display = '';
     if (!displayedGridInput) {
-        createGridInput(gridInputDiv);
+        const scalelInputElement = createGridInput(gridInputDiv);
         displayedGridInput = true;
-    }
-    /*while (!validScale) {
-        let inputScale = parseInt(prompt("Type a rows X columns scale for sketchpad"));
-        if(inputScale && inputScale <= maxScale) {
-            validScale =  true;
-            // remove existing cells from grid
-            cells.forEach(cell => {
-                containerDiv.removeChild(cell);
+        const resizeBtn = document.querySelector("#confirm-button");
+        
+        // listen when user clicks resize grid button
+        resizeBtn.addEventListener('click', () => {
+            let inputScale = scalelInputElement.value;
+            if(inputScale && inputScale != 0 && inputScale <= maxScale) {
 
-            });
-            // create cells with new scale
-            cells = createDivs(containerDiv, inputScale);
-            listen_cells(draw_color);
-        }
-    }*/
+                // remove existing cells from grid
+                cells.forEach(cell => {
+                    containerDiv.removeChild(cell);
+    
+                });
+                // remove input prompt
+                gridInputDiv.style.display = 'none';
+                // create cells with new scale
+                cells = createDivs(containerDiv, inputScale);
+                listen_cells(draw_color);
+            }
+        });
+    }
 });
+
 
 drawBtn.addEventListener('click', () => draw = true);
 

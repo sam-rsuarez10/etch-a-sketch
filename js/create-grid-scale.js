@@ -1,6 +1,6 @@
 function createGridInput(parentElement){
     // creates the corrresponding input to let the user type a grid scale
-
+    // returns the input element
     const groupDiv = document.createElement('div');
     groupDiv.classList.add('input-group', 'mb-3');
 
@@ -29,6 +29,8 @@ function createGridInput(parentElement){
     groupDiv.appendChild(confirmBtn);
 
     parentElement.appendChild(groupDiv);
+
+    return gridInput;
 }
 
 export {createGridInput};
